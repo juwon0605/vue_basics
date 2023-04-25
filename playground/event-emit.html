@@ -8,7 +8,9 @@
   </head>
   <body>
     <div id="app">
+      <p>{{ num }}</p>
       <app-header v-on:pass="logText"></app-header>
+      <app-content v-on:add="plusNum"></app-content>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -22,15 +24,31 @@
         },
       };
 
+      var appContent = {
+        template: "<button v-on:click='addNumber'>add</button>",
+        methods: {
+          addNumber: function () {
+            this.$emit("add");
+          },
+        },
+      };
+
       var vm = new Vue({
         el: "#app",
         components: {
           "app-header": appHeader,
+          "app-content": appContent,
         },
         methods: {
           logText: function () {
             console.log("hi");
           },
+          plusNum: function () {
+            this.num += 1;
+          },
+        },
+        data: {
+          num: 10,
         },
       });
     </script>
