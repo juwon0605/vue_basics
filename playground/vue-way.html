@@ -18,15 +18,26 @@
       //     // 정의할 내용
       //   });
 
-      Object.defineProperty(viewModel, "str", {
-        get: function () {
-          console.log("접근");
-        },
-        set: function (newValue) {
-          console.log("할당", newValue);
-          div.innerHTML = newValue;
-        },
-      });
+      //노출되지 않게 즉시 실행함수 사용
+      (function () {
+        function init() {
+          Object.defineProperty(viewModel, "str", {
+            get: function () {
+              console.log("접근");
+            },
+            set: function (newValue) {
+              console.log("할당", newValue);
+              render(newValue);
+            },
+          });
+        }
+
+        function render(value) {
+          div.innerHTML = value;
+        }
+
+        init();
+      })();
     </script>
   </body>
 </html>
