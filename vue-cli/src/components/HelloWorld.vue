@@ -92,6 +92,9 @@ export default {
   props: {
     msg: String,
   },
+  // 아래와 같은 선언 방법
+  // 타입만 추가로 명시
+  // props: ["msg"],
 };
 </script>
 

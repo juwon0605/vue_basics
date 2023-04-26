@@ -1,19 +1,25 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <img alt="Vue logo" src="./assets/logo.png" />
+    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <!-- 아래와 같은 선언 방식 -->
+    <!-- <hello-world></hello-world> -->
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from "./components/HelloWorld.vue";
 
 export default {
-  name: 'App',
+  // 아래와 같은 동작
+  // new Vue({
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    HelloWorld,
+    // 아래와 같은 선언 방식
+    // "hello-world": HelloWorld,
+  },
+};
 </script>
 
 <style>
